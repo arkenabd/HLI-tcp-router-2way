@@ -50,7 +50,7 @@
                                 <log id="ayp_log1_ayopinq" message="Selected : AYOPINQ / INQUIRY"/>
                                 <doTry id="ayp_doTry_callCore_ayopinq">
                                     <throttle id="ayp_throttle1_ayopinq" timePeriodMillis="10000">
-                                    <constant>100</constant>
+                                    <constant>1000</constant>
                                     <to id="ayp_to4" uri="seda:openedchannel?exchangePattern=InOnly&amp;waitForTaskToComplete=Never"/>
                                     </throttle>
                                     <doCatch id="ayp_AllError1_ayopinq">
@@ -78,7 +78,7 @@
                                 <log id="ayp_log1_ayopsts" message="Selected : AYOPSTS / STATUS"/>
                                 <doTry id="ayp_doTry_callCore_ayopsts">
                                     <throttle id="ayp_throttle1_ayopsts" timePeriodMillis="10000">
-                                    <constant>100</constant>
+                                    <constant>1000</constant>
                                     <to
                                     id="ayp_to_corebanking1_ayopsts" uri="seda:coreinonly?exchangePattern=InOnly&amp;waitForTaskToComplete=Never"/>
                                     </throttle>
@@ -107,7 +107,7 @@
                                 <log id="ayp_log1_ayopymn" message="Selected : AYOPYMN / PAYMENT"/>
                                 <doTry id="ayp_doTry_callCore_ayopymn">
                                     <throttle id="ayp_throttle1_ayopymn" timePeriodMillis="10000">
-                                    <constant>100</constant>
+                                    <constant>1000</constant>
                                     <to
                                     id="ayp_to_corebanking1_ayopymn" uri="seda:coreinonly?exchangePattern=InOnly&amp;waitForTaskToComplete=Never"/>
                                     </throttle>
@@ -136,7 +136,7 @@
                                 <log id="2_log1" message="Selected : IDMCSHO / CASHOUT"/>
                                 <doTry id="2_doTry_callCore">
                                     <throttle id="2_throttle1" timePeriodMillis="10000">
-                                    <constant>100</constant>
+                                    <constant>1000</constant>
                                     <to id="2_to1" uri="direct:core"/>
                                     </throttle>
                                     <log id="2_responseHli" message="Response from core banking/ HOBIS:  ${body}"/>
@@ -165,7 +165,7 @@
                                 <log id="2_log7" message="Selected : IDMREVS / REVERSAL"/>
                                 <doTry id="2_doTry3">
                                     <throttle id="2_throttle2" timePeriodMillis="10000">
-                                    <constant>2</constant>
+                                    <constant>1000</constant>
                                     <to id="2_to_corebanking2" uri="direct:core"/>
                                     </throttle>
                                     <log id="2_responseHli2" message="Response from core banking/ HOBIS:  ${body}"/>
@@ -194,7 +194,7 @@
                                 <log id="2_log8" message="Selected : IDMNOTF / NOTIFICATION"/>
                                 <doTry id="2_doTry4">
                                     <throttle id="2_throttle3" timePeriodMillis="10000">
-                                    <constant>2</constant>
+                                    <constant>1000</constant>
                                     <to id="2_to_corebanking3" uri="direct:core"/>
                                     </throttle>
                                     <log id="2_responseHli3" message="Response from core banking/ HOBIS:  ${body}"/>

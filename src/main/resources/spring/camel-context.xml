@@ -12,13 +12,7 @@
     <bean class="org.apache.camel.impl.DefaultShutdownStrategy" id="shutdown">
         <property name="timeout" value="30"/>
     </bean>
-    <bean class="java.util.Properties" id="myProperties"/>
-    <bean
-        class="org.apache.camel.component.properties.PropertiesComponent" id="properties">
-        <property name="cache" value="false"/>
-        <property name="location" value="classpath:application.properties"/>
-        <property name="overrideProperties" ref="myProperties"/>
-    </bean>
+  
     <!-- use the worker pool builder to create to help create the shared thread 
 		pool -->
     <bean

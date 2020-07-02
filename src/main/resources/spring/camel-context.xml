@@ -12,7 +12,6 @@
     <bean class="org.apache.camel.impl.DefaultShutdownStrategy" id="shutdown">
         <property name="timeout" value="30"/>
     </bean>
-  
     <!-- use the worker pool builder to create to help create the shared thread 
 		pool -->
     <bean
@@ -45,7 +44,7 @@
                                 <doTry id="ayp_doTry_callCore_ayopinq">
                                     <throttle id="ayp_throttle1_ayopinq" timePeriodMillis="10000">
                                     <constant>1000</constant>
-                                    <to id="ayp_to4" uri="seda:openedchannel?exchangePattern=InOnly&amp;waitForTaskToComplete=Never"/>
+                                    <to id="ayp_to4" uri="seda:coreinonly?exchangePattern=InOnly&amp;waitForTaskToComplete=Never"/>
                                     </throttle>
                                     <doCatch id="ayp_AllError1_ayopinq">
                                     <!-- catch multiple exceptions -->

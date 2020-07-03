@@ -27,7 +27,7 @@
     <!-- ================================== -->
     <camelContext id="multiple-netty-codecs-context" streamCache="true" xmlns="http://camel.apache.org/schema/spring">
         <route id="TCP_Router_2_way">
-            <from id="2_toCore" uri="netty4:tcp://0.0.0.0:49811?disconnect=true&amp;disconnectOnNoReply=false&amp;exchangePattern=InOut&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true&amp;keepAlive=false"/>
+            <from id="2_toCore" uri="netty4:tcp://0.0.0.0:49811?disconnectOnNoReply=false&amp;exchangePattern=InOut&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true"/>
             <process id="2_Init_Strategy" ref="killRoute"/>
             <doTry id="2_doTry1">
                 <log id="2_showInput" message="Input HLI TCP Router : ${body}"/>
@@ -241,7 +241,7 @@
             <!-- <log id="2_log2" message="${body}"/> -->
         </route>
         <route id="_corebank">
-            <from id="_from1" uri="direct:core?synchronous=true"/>
+            <from id="_from1" uri="direct:core"/>
             <doTry id="_doTry2">
                 <!-- <to id="_to2" uri="netty4:tcp://192.168.88.98:49810?disconnect=true&amp;clientMode=true&amp;synchronous=true&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true"/> -->
                 <!-- <to id="_to2" uri="netty4:tcp://localhost:7001?clientMode=true&amp;allowDefaultCodec=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true" 

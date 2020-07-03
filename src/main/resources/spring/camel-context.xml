@@ -27,7 +27,7 @@
     <!-- ================================== -->
     <camelContext id="multiple-netty-codecs-context" streamCache="true" xmlns="http://camel.apache.org/schema/spring">
         <route id="TCP_Router_2_way">
-            <from id="2_toCore" uri="netty4:tcp://0.0.0.0:49811?disconnectOnNoReply=false&amp;exchangePattern=InOut&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true"/>
+            <from id="2_toCore" uri="netty4:tcp://0.0.0.0:49811?disconnectOnNoReply=false&amp;exchangePattern=InOut&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true&amp;disconnect=true"/>
             <process id="2_Init_Strategy" ref="killRoute"/>
             <doTry id="2_doTry1">
                 <log id="2_showInput" message="Input HLI TCP Router : ${body}"/>

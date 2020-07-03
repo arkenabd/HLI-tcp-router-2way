@@ -27,7 +27,7 @@
     <!-- ================================== -->
     <camelContext id="multiple-netty-codecs-context" streamCache="true" xmlns="http://camel.apache.org/schema/spring">
         <route id="TCP_Router_2_way">
-            <from id="2_toCore" uri="netty4:tcp://0.0.0.0:49811?disconnectOnNoReply=false&amp;exchangePattern=InOut&amp;synchronous=true&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true"/>
+            <from id="2_toCore" uri="netty4:tcp://0.0.0.0:49811?disconnectOnNoReply=false&amp;exchangePattern=InOut&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true"/>
             <process id="2_Init_Strategy" ref="killRoute"/>
             <doTry id="2_doTry1">
                 <log id="2_showInput" message="Input HLI TCP Router : ${body}"/>
@@ -130,7 +130,7 @@
                                 <doTry id="2_doTry_callCore">
                                     <throttle id="2_throttle1" timePeriodMillis="10000">
                                     <constant>1000</constant>
-                                    <to id="2_to1" uri="direct:core?synchronous=true"/>
+                                    <to id="2_to1" uri="direct:core"/>
                                     </throttle>
                                     <log id="2_responseHli" message="Response from core banking/ HOBIS:  ${body}"/>
                                     <doCatch id="2_AllError1">
@@ -247,7 +247,7 @@
                 <!-- <to id="_to2" uri="netty4:tcp://localhost:7001?clientMode=true&amp;allowDefaultCodec=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true" 
 					/> -->
                 <bean id="_bean1" ref="cleansing"/>
-                <to id="_to1" uri="netty4:tcp://{{corebank.address}}:{{corebank.port}}?clientMode=true&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true&amp;synchronous=true"/>
+                <to id="_to1" uri="netty4:tcp://{{corebank.address}}:{{corebank.port}}?clientMode=true&amp;allowDefaultCodec=false&amp;autoAppendDelimiter=false&amp;decoders=#string-decoder&amp;encoders=#string-encoder&amp;textline=true"/>
                 <doCatch id="_AllError_callCore">
                     <!-- catch multiple exceptions -->
                     <exception>java.io.IOException</exception>
